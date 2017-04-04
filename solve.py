@@ -33,7 +33,7 @@ def assign(var_number, value=None):
     if variables[var_number] != UNKNOWN and value is None:
         raise ValueError("already assigned")
     if value is None:
-        variables[var_number] = random.randrange(-1, 2, 2)  # 1 or -1
+        variables[var_number] = TRUE
     else:  # forced assignment
         if value not in range(-1, 2, 2):  # [-1, 1]
             raise ValueError("value is out of bounds")
