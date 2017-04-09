@@ -2,7 +2,6 @@
 
 import sys
 import signal
-import random
 
 TRUE = 1
 FALSE = -1
@@ -118,28 +117,18 @@ def check_sat():
         for x in range(nbvar):
             print ((x + 1) * result[x]),
         print 0
-        # just to check
-        # for clause in clauses:
-        #     for num in clause:
-        #         if num > 0:
-        #             sign = 1
-        #         else:
-        #             sign = -1
-        #         print result[num * sign - 1] * sign,  # "(", i, ") ",
-        #     print
-        #
         print "SATISFIABLE"
-        exit()
+        sys.exit()
     if sat == FALSE:
         print "UNSATISFIABLE"
-        exit()
+        sys.exit()
     if var_changed:
         check_sat()
 
 
 def signal_handler(signal_number, frame):
     print("UNKNOWN")
-    exit()
+    sys.exit()
 
 signal.signal(signal.SIGINT, signal_handler)
 
